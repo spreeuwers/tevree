@@ -15,13 +15,12 @@
            flex-basis: 10vw;
         }
 
-        google-youtube, [kalender] {
+        google-youtube, [kalender],[facebook],[kaart]{
             border-radius: 5%;
         }
 
         div[video] {
             width: 20vw;
-            height: 15vw;
             display: inline-block;
             margin: 2rem;
         }
@@ -49,6 +48,12 @@
         #gyt4 {
             border: 1em solid yellow;
         }
+
+        [kalender],[facebook],[kaart]{
+            border: 1em solid gold;
+            width:20vw;
+            height:15vw;
+        }
         div[left] img {
             width:15vw;
         }
@@ -72,41 +77,42 @@
 </div>
 <div right>
     <div video>
-        <google-youtube id="gyt1" video-id="" height="270px" width="300px" rel="0" start="5" autoplay="1">
+        <google-youtube id="gyt1" video-id="" fluid="true" rel="0" start="5" autoplay="1">
 
         </google-youtube>
     </div>
     <div video>
-        <google-youtube id="gyt2" video-id="_hLA7wTWdlQ" height="270px" width="300px" rel="0" start="5" autoplay="1">
+        <google-youtube id="gyt2" video-id="_hLA7wTWdlQ" fluid="true" rel="0" start="5" autoplay="1">
         </google-youtube>
     </div>
     <div video>
         <google-youtube
                 id="gyt3"
                 video-id="1i2yokldO8s"
-                height="270px"
-                width="300px"
+                fluid="true"
                 rel="0"
                 start="5"
                 autoplay="1">
         </google-youtube>
     </div>
     <div video>
-        <google-youtube
-                id="gyt4"
-                video-id=""
-                height="270px"
-                width="300px"
-                rel="0"
-                start="5"
-                autoplay="1">
-        </google-youtube>
+        <iframe kaart src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d9850.808397553594!2d4.499738780192921!3d51.88465017358614!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c433a50edc0527%3A0xe5f7ac13416a6e74!2sVreewijk%2C+Rotterdam!5e0!3m2!1sen!2snl!4v1481895831274" frameborder="0"  allowfullscreen></iframe>
     </div>
     <div video>
         <iframe kalender
-                src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=600&amp;wkst=1&amp;hl=nl&amp;bgcolor=%2333ff33&amp;src=teevree24%40gmail.com&amp;color=%231B887A&amp;ctz=Europe%2FAmsterdam"
-                style="border:solid 1px #777" width="100%" height="75%" frameborder="0" scrolling="no"></iframe>
+                src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=300&amp;wkst=1&amp;hl=nl&amp;bgcolor=%2333ff33&amp;src=teevree24%40gmail.com&amp;color=%231B887A&amp;ctz=Europe%2FAmsterdam"
+                frameborder="0" scrolling="no">
+
+        </iframe>
     </div>
+    <div video>
+        <iframe facebook
+                src="img/likejewijk.png"
+                frameborder="0" scrolling="no">
+
+        </iframe>
+    </div>
+    <br>
     <br>
     <button accesskey="s" style="background-color: red" onclick="vergroot('gyt1')">1</button>
     <button accesskey="s" style="background-color: green" onclick="vergroot('gyt2')">2</button>
