@@ -67,42 +67,74 @@ document.addEventListener("keydown", keyDownHandler, false);
 function keyDownHandler(e) {
     var keyCode = e.keyCode;
     var key = e.key;
-    if ('123'.indexOf(key) >=0 ){
-        verklein();
-        vergroot(`gyt${key}`);
+    if ('123'.indexOf(key) >= 0) {
+        vergrootVideo(`gyt${key}`);
     }
 
-    if(keyCode==27 || key === '0') {
-        verklein();
+    if (keyCode == 27 || key === '0') {
+        verkleinVideo();
+        verkleinIframe();
     }
- }
 
+    if ('456'.indexOf(key) >= 0) {
+        nr = '456'.indexOf(key);
+        vergrootIframe(`content${nr}`);
+    }
+}
 
-function vergroot(id){
-  var srcElm =document.getElementById(id);
-  var gytElm = document.createElement('google-youtube');
-    gytElm.id="gytLarge";
-    gytElm.videoId=srcElm.videoId;
-    var w= Math.round(window.innerWidth*0.70);
-    var h= Math.round(w*0.6);
-    gytElm.height=`${h}px`;
-    gytElm.width=`${w}px`;
-    gytElm.rel="0";
-    gytElm.start="5";
-    gytElm.autoplay="1";
-    gytElm.style.position='absolute';
-    gytElm.style.left='17vw';
+function vergrootIframe(id) {
+    verkleinVideo();
+    verkleinIframe();
+    var srcElm = document.getElementById(id);
+    var iframe = document.createElement('iframe');
+    iframe.id = "iframeLarge";
+    iframe.src=srcElm.src;
+    iframe.frameBorder = srcElm.frameBorder;
+    iframe.scrolling = srcElm.scrolling;
+    var w = Math.round(window.innerWidth * 0.70);
+    var h = Math.round(w * 0.6);
+    iframe.height = `${h}px`;
+    iframe.width = `${w}px`;
+    iframe.style.position = 'absolute';
+    iframe.style.left = '17vw';
+
+    document.body.appendChild(iframe);
+}
+
+function vergrootVideo(id) {
+    verkleinVideo();
+    verkleinIframe();
+    var srcElm = document.getElementById(id);
+    var gytElm = document.createElement('google-youtube');
+    gytElm.id = "gytLarge";
+    gytElm.videoId = srcElm.videoId;
+    var w = Math.round(window.innerWidth * 0.70);
+    var h = Math.round(w * 0.6);
+    gytElm.height = `${h}px`;
+    gytElm.width = `${w}px`;
+    gytElm.rel = "0";
+    gytElm.start = "5";
+    gytElm.autoplay = "1";
+    gytElm.style.position = 'absolute';
+    gytElm.style.left = '17vw';
 
     document.body.appendChild(gytElm);
 
 
+}
+
+function verkleinVideo() {
+    var gytElm = document.getElementById('gytLarge');
+    if (gytElm) {
+        document.body.removeChild(gytElm);
+    }
 
 }
 
-function verklein(){
-    var gytElm = document.getElementById('gytLarge');
-    if (gytElm){
-        document.body.removeChild(gytElm);
+function verkleinIframe() {
+    var iframe = document.getElementById('iframeLarge');
+    if (iframe) {
+        document.body.removeChild(iframe);
     }
 
 }
