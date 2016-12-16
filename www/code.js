@@ -67,7 +67,8 @@ document.addEventListener("keydown", keyDownHandler, false);
 function keyDownHandler(e) {
     var keyCode = e.keyCode;
     var key = e.key;
-    if ('1234'.indexOf(key) >=0 ){
+    if ('123'.indexOf(key) >=0 ){
+        verklein();
         vergroot(`gyt${key}`);
     }
 
