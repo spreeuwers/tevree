@@ -30,7 +30,7 @@ fetch(url)
                         btn.onclick = function () {
                             gyt.setAttribute('video-id', item.contentDetails.videoId);
                         }
-                        btn.innerHTML = item.contentDetails.videoId;
+                        btn.innerHTML = `video ${i}`;//item.contentDetails.videoId;
                         var parent = document.querySelector('div[right]');
                         parent.appendChild(btn);
                         playlist.push(item.contentDetails.videoId);
@@ -91,11 +91,12 @@ function vergrootIframe(id) {
     iframe.src=srcElm.src;
     iframe.frameBorder = srcElm.frameBorder;
     iframe.scrolling = srcElm.scrolling;
-    var w = Math.round(window.innerWidth * 0.70);
+    var w = Math.round(window.innerWidth * 0.8);
     var h = Math.round(w * 0.6);
     iframe.height = `${h}px`;
     iframe.width = `${w}px`;
     iframe.style.position = 'absolute';
+
     iframe.style.left = '17vw';
 
     document.body.appendChild(iframe);
@@ -116,6 +117,7 @@ function vergrootVideo(id) {
     gytElm.start = "5";
     gytElm.autoplay = "1";
     gytElm.style.position = 'absolute';
+    gytElm.style.border='2em solid black';
     gytElm.style.left = '17vw';
 
     document.body.appendChild(gytElm);
