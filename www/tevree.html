@@ -6,14 +6,31 @@
     <title>Title</title>
     <link rel="import" href="app/bower_components/google-youtube/google-youtube.html">
     <style>
-        google-youtube {
+
+        body[flex] {
+            display: flex; /* or inline-flex */
+            flex-direction: row
+        }
+        div[left]{
+           flex-basis: 10vw;
+        }
+
+        google-youtube, [kalender] {
             border-radius: 5%;
         }
 
         div[video] {
-            width: 25vw;
-            height: 20vw;
+            width: 20vw;
+            height: 15vw;
             display: inline-block;
+            margin: 2rem;
+        }
+
+        .large {
+            width: 80vw;
+            height: 40vw;
+            display: block;
+            position: absolute;
             margin: 3rem;
         }
 
@@ -32,40 +49,67 @@
         #gyt4 {
             border: 1em solid yellow;
         }
+        div[left] img {
+            width:15vw;
+        }
+        div[bottom]{
+            vertical-align: bottom;
+        }
+        div[spacer]{
+            height:30vh;
+        }
+
     </style>
     <script src="code.js"></script>
 </head>
-<body onload="init()">
-<div video>
-    <google-youtube id="gyt1" video-id="" height="270px" width="400px" rel="0" start="5" autoplay="1">
+<body flex onload="init()">
+<div left>
+    <div bottom>
+      <img src="img/vaanlogo.jpg"><br>
+      <div spacer>&nbsp;</div>
+      <img src="img/bear-balloon.resized.jpg">
+    </div>
+</div>
+<div right>
+    <div video>
+        <google-youtube id="gyt1" video-id="" height="270px" width="300px" rel="0" start="5" autoplay="1">
 
-    </google-youtube>
-</div>
-<div video>
-    <google-youtube id="gyt2" video-id="_hLA7wTWdlQ" height="270px" width="400px" rel="0" start="5" autoplay="1">
-    </google-youtube>
-</div>
-<div video>
-    <google-youtube
-            id="gyt3"
-            video-id="1i2yokldO8s"
-            height="270px"
-            width="400px"
-            rel="0"
-            start="5"
-            autoplay="1">
-    </google-youtube>
-</div>
-<div video>
-    <google-youtube
-            id="gyt4"
-            video-id=""
-            height="270px"
-            width="400px"
-            rel="0"
-            start="5"
-            autoplay="1">
-    </google-youtube>
+        </google-youtube>
+    </div>
+    <div video>
+        <google-youtube id="gyt2" video-id="_hLA7wTWdlQ" height="270px" width="300px" rel="0" start="5" autoplay="1">
+        </google-youtube>
+    </div>
+    <div video>
+        <google-youtube
+                id="gyt3"
+                video-id="1i2yokldO8s"
+                height="270px"
+                width="300px"
+                rel="0"
+                start="5"
+                autoplay="1">
+        </google-youtube>
+    </div>
+    <div video>
+        <google-youtube
+                id="gyt4"
+                video-id=""
+                height="270px"
+                width="300px"
+                rel="0"
+                start="5"
+                autoplay="1">
+        </google-youtube>
+    </div>
+    <div video>
+        <iframe kalender
+                src="https://calendar.google.com/calendar/embed?showTitle=0&amp;showNav=0&amp;showPrint=0&amp;showTabs=0&amp;showCalendars=0&amp;showTz=0&amp;mode=AGENDA&amp;height=600&amp;wkst=1&amp;hl=nl&amp;bgcolor=%2333ff33&amp;src=teevree24%40gmail.com&amp;color=%231B887A&amp;ctz=Europe%2FAmsterdam"
+                style="border:solid 1px #777" width="100%" height="75%" frameborder="0" scrolling="no"></iframe>
+    </div>
+    <br>
+    <button accesskey="s" style="background-color: red" onclick="vergroot('gyt1')">1</button>
+    <button accesskey="s" style="background-color: silver" onclick="verklein()">stop</button>
 </div>
 </body>
 </html>
